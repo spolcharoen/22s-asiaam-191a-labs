@@ -9,10 +9,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // create a function to add markers
-function addMarker(lat,lng,title,message){
-    console.log(message)
-    L.marker([lat,lng]).addTo(map).bindPopup(`<h2>${title}</h2> <h3>${message}</h3>`)
-    return message
+function addMarker(data){
+    console.log(data)
+    L.marker([data.lat,data.lng]).addTo(map).bindPopup(`<h2>Bias: ${data["Who's your bias?"]}</h2> <h3>How you discovered BTS: ${data["How did you discover BTS?"]}</h3> <h3>Favorite song: ${data["What's your favorite song?"]}</h3>`)
+    // return message
 }
 
 const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSn6rqhN-tHgqJ-7xkmSq4kinPDxkJj1s-xmyN5Q52RBEmirJ9072kVH9lSIXn7YDoiX_JEmcBCtbHN/pub?output=csv"
@@ -29,7 +29,8 @@ function processData(results){
     console.log(results)
     results.data.forEach(data => {
         console.log(data)
-        addMarker(data.lat,data.lng,data['OpenEnded'],data['Is your English your first language?'])
+        addMarker(data)
+        // addMarker(data.lat,data.lng,data['How did you discover BTS?'],data["Who's your bias?"])
     })
 }
 
