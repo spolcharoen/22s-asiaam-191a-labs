@@ -11,7 +11,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // create a function to add markers
 function addMarker(data){
     console.log(data)
-    L.marker([data.lat,data.lng]).addTo(map).bindPopup(`<h2>Bias: ${data["Who's your bias?"]}</h2> <h3>How you discovered BTS: ${data["How did you discover BTS?"]}</h3> <h3>Favorite song: ${data["What's your favorite song?"]}</h3>`)
+    L.marker([data.lat,data.lng]).addTo(map).bindPopup(`<h2>Bias: ${data["Who's your bias?"]}</h2> <h3>How you discovered BTS: ${data["How did you discover BTS?"]}</h3>`)
     // return message
 }
 
